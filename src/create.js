@@ -1,9 +1,18 @@
 import { displayLog } from './utils';
-import { from } from 'rxjs';
+import { of, range } from 'rxjs';
 
 export default () => {
     /** start coding */
-
-
+    const source = of(1,2,4,5,6);
+    const source2 = of(
+        [1,2,3],
+        'Hello World',
+        { foo: 'bar'},
+        function sayHello() {
+            return 'Hi!';
+        }
+    );
+    const source3 = range(3,12)
+    const subscription = source3.subscribe(data => displayLog(data));
     /** end coding */
 }
