@@ -1,9 +1,16 @@
 import { displayLog } from './utils';
-import { from } from 'rxjs';
+import { fromEvent } from 'rxjs';
 
 export default () => {
     /** start coding */
+    const actionBtn = document.getElementById('action-btn');
+    const source = fromEvent(actionBtn, 'click');
 
+    source.subscribe(evt => {
+        displayLog(`click evt at position: ${evt.x}, ${evt.y}`);
+    });
+
+    fromEvent(document, 'mousemove').subscribe( evt => console.log(evt));
 
     /** end coding */
 }
